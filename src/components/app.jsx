@@ -1,9 +1,12 @@
 import React from 'react';
+import LeftSide from '../containers/left-side'
+import RightSide from '../containers/right-side'
 
 const App = () => {
   return (
     <div className="app">
-      <p>React + Redux starter</p>
+      <LeftSide />
+      <RightSide />
     </div>
   );
 };

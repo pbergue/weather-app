@@ -1,7 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+
+@import './variables/variables';
+
+@import './components/app';
+@import './components/left-side';
+@import './components/right-side';
+
 body {
-  font-family: Helvetica;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
 }
 .app {
-  margin-top: 20px;
-  margin-bottom: 20px;
+
 }
