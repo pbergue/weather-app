@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import SearchBar from './search-bar';
+import CityWeather from './city-weather';
 
 class RightSide extends Component {
   render() {
     return (
       <div className="right-side">
-        RightSide
+        <SearchBar />
+        <CityWeather city={this.props.selectedCity} />
       </div>
     )
   }
 }
 
-export default RightSide;
+function mapStateToProps(state) {
+  return {
+    selectedCity: state.selectedCity
+  }
+}
+
+export default connect(mapStateToProps)(RightSide);

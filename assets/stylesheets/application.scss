@@ -10,3 +10,18 @@ body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
 }
+
+input {
+  color: $orange;
+  font-weight: 700;
+  font-size: 15px;
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: $orange;
+    font-weight: 400;
+    opacity: 0.6
+  }
+}

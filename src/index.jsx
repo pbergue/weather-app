@@ -12,11 +12,23 @@ import '../assets/stylesheets/application.scss';
 
 // State and reducers
 const initialState = {
-  majorCityList: ['Paris', 'New York', 'London', 'Beijing']
+  majorCityList: ['Paris', 'New York', 'London', 'Beijing'],
+  selectedCity: {
+    name: "Laval",
+    country: "France",
+    tmin: "18°C",
+    tmax: "25°C",
+    humidity: "36%",
+    pressure: "1024 hPa",
+    windSpeed: "18km/h",
+    windDir: "W",
+    quality: "13"
+  }
 };
 
 const reducers = combineReducers({
-  majorCityList: (state = null, action) => state
+  majorCityList: (state = null, action) => state,
+  selectedCity: (state = null, action) => state
 });
 
 // Middlewares
