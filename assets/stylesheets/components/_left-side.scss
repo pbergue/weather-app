@@ -18,3 +18,115 @@
     margin: 0;
   }
 }
+
+.date {
+  .day {
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  .date-item {
+    font-weight: 300;
+    margin: 0;
+    opacity: 0.8;
+  }
+  .hour {
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-size: 24px;
+    margin-top: 5px;
+  }
+}
+
+.day-cycle {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.sun-hours {
+  width: 47%;
+  display: flex;
+  justify-content: space-between;
+  margin: -30px auto 0 auto;
+  .sunrise-sunset {
+    font-weight: 400;
+    margin-top: 0;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+  }
+}
+
+.major-city-list {
+  text-align: center;
+  width: 80%;
+  margin: 16px auto;
+
+  h2 {
+    font-weight: 400;
+    font-size: 25px;
+    margin-bottom: 10px;
+    opacity: 1;
+  }
+  h3 {
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    list-style: none;
+  }
+
+  .city-item {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    .city-item-name{
+      font-weight: 400;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    .city-item-value{
+      font-weight: 300;
+      margin: 10px 0;
+      font-size: 16px;
+      opacity: 0.8;
+    }
+
+    .city-item-advice{
+      font-weight: 400;
+      margin: 5px 0;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 16px;
+    }
+  }
+}
+
+#semi-round {
+  fill: none;
+  width: 100%;
+}
+
+#orb {
+  width: 32px;
+  position: relative;
+  left: -50%;
+  bottom: 30px;
+}
+
+#sunrise {
+  width: 40px;
+  opacity: 0.6;
+}
+
+#sunset {
+  width: 40px;
+  opacity: 0.6;
+}

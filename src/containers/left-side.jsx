@@ -1,36 +1,28 @@
 import React, { Component } from 'react';
+import MajorCityList from './major-city-list';
 
 class LeftSide extends Component {
   getCurrentDate() {
     const date = new Date(Date.now());
-    const format = 'dd mm yyyy';
-    const map = {
-      mm: date.getMonth() + 1,
-      dd: date.getDate(),
-      yy: date.getFullYear().toString().slice(-2),
-      yyyy: date.getFullYear()
-    }
-    const dayList = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December'
-      ];
-    const day = dayList[date.getDay()];
-    const month = months[date.getMonth()];
+    const monthList = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+    const number = date.getDate();
+    const month = monthList[date.getMonth()];
     const year = date.getFullYear();
-    return `${day}, ${date.getDate()} ${month} ${year}`;
-    // return date.toDateString();
-    // return format.replace(/mm|dd|yy|yyyy/gi, matched => map[matched]);
+
+    return `${number} ${month} ${year}`;
+  }
+
+  getCurrentDay() {
+    const date = new Date(Date.now());
+    const dayList = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+    return dayList[date.getDay()].toUpperCase();
+  }
+
+  getCurrentTime() {
+    const date = new Date(Date.now());
+    return `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
   }
 
   render() {
@@ -39,8 +31,19 @@ class LeftSide extends Component {
         <h1>Weather around you</h1>
         <h2>Enter a city to obtain the weather forecast</h2>
         <div className="date">
-          <h4>{this.getCurrentDate()}</h4>
+          <h4 className="day">{this.getCurrentDay()}</h4>
+          <h4 className="date-item">{this.getCurrentDate()}</h4>
+          <h4 className="hour">{this.getCurrentTime()}</h4>
         </div>
+        <div className="day-cycle">
+          <img id="semi-round" src="../assets/images/semi-round.svg" />
+          <img id="orb" src="../assets/images/sun.svg" />
+        </div>
+        <div className="sun-hours">
+          <h4 className="sunrise-sunset"><img id="sunrise" src="../assets/images/sunrise.svg" /><span>7:12</span></h4>
+          <h4 className="sunrise-sunset"><img id="sunset" src="../assets/images/sunset.svg" /><span>17:52</span></h4>
+        </div>
+        <MajorCityList />
       </div>
     )
   }

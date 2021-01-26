@@ -12,11 +12,11 @@ import '../assets/stylesheets/application.scss';
 
 // State and reducers
 const initialState = {
-
+  majorCityList: ['Paris', 'New York', 'London', 'Beijing']
 };
 
 const reducers = combineReducers({
-  changeMe: (state = null, action) => state
+  majorCityList: (state = null, action) => state
 });
 
 // Middlewares
