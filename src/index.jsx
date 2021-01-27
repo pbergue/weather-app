@@ -9,26 +9,20 @@ import reduxPromise from 'redux-promise';
 // internal modules
 import App from './components/app';
 import '../assets/stylesheets/application.scss';
+import forecast from '../src/data/API-response-5-days-forecast.json';
+import todayWeather from '../src/data/API-response-today-forecast.json';
 
 // State and reducers
 const initialState = {
   majorCityList: ['Paris', 'New York', 'London', 'Beijing'],
-  selectedCity: {
-    name: "Laval",
-    country: "France",
-    tmin: "18°C",
-    tmax: "25°C",
-    humidity: "36%",
-    pressure: "1024 hPa",
-    windSpeed: "18km/h",
-    windDir: "W",
-    quality: "13"
-  }
+  selectedCity: todayWeather,
+  forecast: forecast
 };
 
 const reducers = combineReducers({
   majorCityList: (state = null, action) => state,
-  selectedCity: (state = null, action) => state
+  selectedCity: (state = null, action) => state,
+  forecast: (state = null, action) => state
 });
 
 // Middlewares

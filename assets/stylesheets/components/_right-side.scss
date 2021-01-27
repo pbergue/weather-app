@@ -2,9 +2,13 @@
 
 .right-side {
   width: 70%;
-  background-color: $light-blue;
-  color: $violet;
-  padding: 15px 25px;
+  color: $dark-blue;
+  padding: 15px 70px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.13), rgba(0, 0, 0, 0.13)), url("https://s3-us-gov-west-1.amazonaws.com/cg-c877c3f0-e413-40cd-a59c-ad2d6b211d1b/uploads/2016/05/ThinkstockPhotos-512883102.jpg");
+  background-size: cover;
+  h2 {
+    margin-bottom: 0;
+  }
 }
 
 .search-bar {
@@ -16,14 +20,14 @@
 .search-form-city {
   border: none;
   max-width: 50%;
-  padding: 8px 0 8px 15px;
+  padding: 15px 0 15px 15px;
   border-radius: 35px 0 0 35px;
   box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.1);
 }
 .search-form-country {
   border: none;
   max-width: 50%;
-  padding: 8px 0 8px 15px;
+  padding: 15px 0 15px 15px;
   border-radius: 0 35px 35px 0;
   box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.1);
 }
@@ -43,28 +47,32 @@
 
 .city-weather-content {
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: 2fr 2fr;
 }
 
 .city-weather-weather {
   h3 {
     font-weight: 400;
     letter-spacing: 1px;
+    font-size: 25px;
+    margin: 10px 0;
   }
 }
 .city-weather-quality {
   h3 {
     font-weight: 400;
     letter-spacing: 1px;
+    font-size: 25px;
+    margin: 10px 0;
   }
 }
 
 .weather-data {
-  background-color: white;
+  background-color: rgba($color: $light-blue, $alpha: 0.6);
   text-align: center;
   height: 50%;
-  width: 50%;
-  padding: 10px;
+  width: 67%;
+  padding: 16px 10px 40px 10px;
   border-radius: 5px;
   box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.1);
   p {
@@ -72,11 +80,28 @@
   }
 }
 
+.weather-description {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h2 {
+    margin: 0;
+    margin-right: 5px;
+  }
+}
+
 .first-line-data {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding: 10px 0;
+}
 
+.second-line-data {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
 }
 
 .data-temperature {
@@ -98,6 +123,109 @@
   display: flex;
   align-items: center;
 }
+.data-wind-speed {
+  display: flex;
+  align-items: center;
+}
+.data-wind-direction {
+  display: flex;
+  align-items: center;
+}
+
+.air-quality-content {
+  // background-color: white;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url("https://cdn.pixabay.com/photo/2010/12/13/09/51/fog-1795_1280.jpg");
+  background-size: cover;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+  width: 67%;
+  padding: 16px 10px 40px 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.1);
+  text-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.1);
+  color: white;
+
+  .air-quality-title {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    h5 {
+      font-size: 22px;
+      font-weight: 400;
+      opacity: 1;
+    }
+  }
+
+  .air-quality-value {
+    h6 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 400;
+      opacity: 1;
+    }
+  }
+}
+
+.air-quality-indicator {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+}
+
+.city-weather-forecast {
+  h3 {
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin: 0 0 10px 0;
+    font-size: 25px;
+  }
+}
+
+.day-name-forecast {
+  display: flex;
+  align-items: center;
+}
+
+.days-list {
+  margin: 0;
+  margin-left: 0;
+  width: 85.2%;
+  padding: 0;
+  background-color: rgba($color: $light-blue, $alpha: 0.6);
+  border-radius: 10px;
+  h3 {
+    margin-top: 0;
+    font-weight: 400;
+  }
+}
+
+.days-list-item {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 0 15px;
+}
+
+.humidity-forecast {
+  display: flex;
+  align-items: center;
+}
+
+.temperature-forecast {
+  display: flex;
+  align-items: center;
+  h4 {
+    margin: 0 10px;
+  }
+}
+
+.wind-forecast {
+  display: flex;
+  align-items: center;
+}
 
 #search-loupe {
   width: 25px;
@@ -108,10 +236,15 @@
   }
 }
 
-#weather-icon {
-  width: 30px;
+#top-weather-icon {
+  width: 50px;
 }
 
-#icon-weather {
+#weather-icon {
   width: 30px;
+  margin-right: 5px;
+}
+
+#forecast-icon{
+  width: 50px;
 }

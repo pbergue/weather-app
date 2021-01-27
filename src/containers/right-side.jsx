@@ -4,12 +4,13 @@ import { connect } from 'react-redux';
 import SearchBar from './search-bar';
 import CityWeather from './city-weather';
 
+
 class RightSide extends Component {
   render() {
     return (
       <div className="right-side">
         <SearchBar />
-        <CityWeather city={this.props.selectedCity} />
+        <CityWeather city={this.props.selectedCity} forecast={this.props.forecast} />
       </div>
     )
   }
@@ -17,7 +18,8 @@ class RightSide extends Component {
 
 function mapStateToProps(state) {
   return {
-    selectedCity: state.selectedCity
+    selectedCity: state.selectedCity,
+    forecast: state.forecast
   }
 }
 

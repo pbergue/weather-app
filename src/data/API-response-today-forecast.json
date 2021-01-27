@@ -1,0 +1,43 @@
+{
+  "coord": {
+      "lon": 2.3488,
+      "lat": 48.8534
+  },
+  "weather": [
+      {
+          "id": 741,
+          "main": "Fog",
+          "description": "fog",
+          "icon": "50d"
+      }
+  ],
+  "base": "stations",
+  "main": {
+      "temp": 5.32,
+      "feels_like": 2.82,
+      "temp_min": 5,
+      "temp_max": 6.11,
+      "pressure": 1015,
+      "humidity": 100
+  },
+  "visibility": 400,
+  "wind": {
+      "speed": 2.06,
+      "deg": 220
+  },
+  "clouds": {
+      "all": 90
+  },
+  "dt": 1611746539,
+  "sys": {
+      "type": 1,
+      "id": 6550,
+      "country": "FR",
+      "sunrise": 1611732424,
+      "sunset": 1611765567
+  },
+  "timezone": 3600,
+  "id": 2988507,
+  "name": "Paris",
+  "cod": 200
+}
