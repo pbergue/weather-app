@@ -14,7 +14,7 @@ class MajorCityList extends Component {
             this.props.majorCityList.map( city => {
               return (
                 <li key={city}>
-                  <City city={city} />
+                  <City city={city} aqi={this.props.aqi} />
                 </li>
               );
             })
@@ -27,7 +27,8 @@ class MajorCityList extends Component {
 
 function mapStateToProps(state) {
   return {
-    majorCityList: state.majorCityList
+    majorCityList: state.majorCityList,
+    aqi: state.aqi
   }
 }
 

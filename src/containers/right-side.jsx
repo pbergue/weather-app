@@ -10,7 +10,7 @@ class RightSide extends Component {
     return (
       <div className="right-side">
         <SearchBar />
-        <CityWeather city={this.props.selectedCity} forecast={this.props.forecast} />
+        <CityWeather city={this.props.selectedCity} forecast={this.props.forecast} aqi={this.props.aqi} />
       </div>
     )
   }
@@ -19,7 +19,8 @@ class RightSide extends Component {
 function mapStateToProps(state) {
   return {
     selectedCity: state.selectedCity,
-    forecast: state.forecast
+    forecast: state.forecast,
+    aqi: state.aqi
   }
 }
 

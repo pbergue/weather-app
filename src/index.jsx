@@ -11,18 +11,21 @@ import App from './components/app';
 import '../assets/stylesheets/application.scss';
 import forecast from '../src/data/API-response-5-days-forecast.json';
 import todayWeather from '../src/data/API-response-today-forecast.json';
+import aqi from '../src/data/API-response-AQI-paris.json';
 
 // State and reducers
 const initialState = {
   majorCityList: ['Paris', 'New York', 'London', 'Beijing'],
   selectedCity: todayWeather,
-  forecast: forecast
+  forecast: forecast,
+  aqi: aqi
 };
 
 const reducers = combineReducers({
   majorCityList: (state = null, action) => state,
   selectedCity: (state = null, action) => state,
-  forecast: (state = null, action) => state
+  forecast: (state = null, action) => state,
+  aqi: (state = null, action) => state
 });
 
 // Middlewares

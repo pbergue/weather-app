@@ -1,7 +1,26 @@
 import React, { Component } from 'react';
 
-const compteur = [];
 class CityWeather extends Component {
+
+  aqiColor = (number) => {
+    const colorScale = {
+      green: "#00E400",
+      yellow: "#FFFF00",
+      orange: "#FF7E00",
+      red: "#FF0000",
+      violet: "#8F3F97",
+      brique: "#7E0023"
+    };
+
+
+      if (number <= 50) { return colorScale.green }
+      else if (number <= 100) { return colorScale.yellow }
+      else if (number <= 150) { return colorScale.orange }
+      else if (number <= 200) { return colorScale.red }
+      else if (number <= 300) { return colorScale.violet }
+      else if (number > 300) { return colorScale.brique }
+      else { return "transparent" }
+  }
 
   reduceToOne = (arr) => {
     return arr.reduce((a, b) => a + b, 0)/(arr.length);
@@ -139,10 +158,10 @@ class CityWeather extends Component {
               <div className="air-quality-value">
                 <div className="air-quality-title">
                   <h5>GOOD</h5>
-                  <span className="air-quality-indicator" style={{backgroundColor: "green"}}></span>
+                  <span className="air-quality-indicator" style={{backgroundColor: this.aqiColor(parseInt(this.props.aqi.data.current.pollution.aqius))}}></span>
                 </div>
                 <h6>US AQI:</h6>
-                <h6>{this.props.city.quality}</h6>
+                <h6>{this.props.aqi.data.current.pollution.aqius}</h6>
               </div>
             </div>
           </div>

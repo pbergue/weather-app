@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import MajorCityList from './major-city-list';
 
 class LeftSide extends Component {
@@ -40,8 +42,8 @@ class LeftSide extends Component {
           <img id="orb" src="../assets/images/sun.svg" />
         </div>
         <div className="sun-hours">
-          <h4 className="sunrise-sunset"><img id="sunrise" src="../assets/images/sunrise.svg" /><span>7:12</span></h4>
-          <h4 className="sunrise-sunset"><img id="sunset" src="../assets/images/sunset.svg" /><span>17:52</span></h4>
+          <h4 className="sunrise-sunset"><img id="sunrise" src="../assets/images/sunrise.svg" /><span>{`${new Date(this.props.selectedCity.sys.sunrise * 1000).getHours()}:${new Date(this.props.selectedCity.sys.sunrise * 1000).getMinutes()}`}</span></h4>
+          <h4 className="sunrise-sunset"><img id="sunset" src="../assets/images/sunset.svg" /><span>{`${new Date(this.props.selectedCity.sys.sunset * 1000).getHours()}:${new Date(this.props.selectedCity.sys.sunset * 1000).getMinutes()}`}</span></h4>
         </div>
         <MajorCityList />
       </div>
@@ -49,4 +51,10 @@ class LeftSide extends Component {
   }
 }
 
-export default LeftSide;
+function mapStateToProps(state) {
+  return {
+    selectedCity: state.selectedCity
+  }
+}
+
+export default connect(mapStateToProps)(LeftSide);
