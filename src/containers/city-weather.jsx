@@ -47,7 +47,8 @@ class CityWeather extends Component {
           icon: [],
           temp: [],
           speed: [],
-          deg: []
+          deg: [],
+          description: []
         };
 
 
@@ -65,13 +66,14 @@ class CityWeather extends Component {
             dayToDisplay.temp.push(hour.main.temp);
             dayToDisplay.speed.push(hour.wind.speed);
             dayToDisplay.deg.push(hour.wind.deg);
+            dayToDisplay.description.push(hour.weather[0].description);
           }
 
         })
         dayToDisplay.name = [...new Set(dayToDisplay.name)];
-        dayToDisplay.icon = dayToDisplay.icon[0];
+        dayToDisplay.icon = dayToDisplay.icon[3];
+        dayToDisplay.description = dayToDisplay.description[3];
 
-        // console.log(dayToDisplay);
         return dayToDisplay;
 
       })
@@ -85,30 +87,39 @@ class CityWeather extends Component {
     // }
     const hours = this.props.forecast.list;
     // console.log(this.getProperDay(hours));
-    return (
-      this.getProperDay(hours).map( day => {
-        return (
-          <li key={day.name} className="days-list-item">
-            <div className="day-name-forecast">
-              <h4>{day.name}</h4>
-            </div>
-            <div className="humidity-forecast">
-              <img src="../../assets/images/humidity.svg" id="weather-icon" alt="humidity-forecast" />
-              <h4>{Math.round(this.reduceToOne(day.humidity))}%</h4>
-            </div>
-            <img id="forecast-icon" src={`http://openweathermap.org/img/wn/${day.icon}@2x.png`} alt="forecast-icon"/>
-            <div className="temperature-forecast">
-              <h4>{Math.round(this.reduceToOne(day.temp) - 273.15)}°C</h4>
-            </div>
-            <div className="wind-forecast">
-            <img src="../../assets/images/right-arrow.svg" id="weather-icon" style={{transform: `rotate(${90 + (this.reduceToOne(day.deg))}deg)`}} alt="wind-forecast" />
-              <h4>{Math.round(this.reduceToOne(day.speed) * 3.6)} km/h</h4>
-            </div>
-          </li>
-        );
-      })
+    if (this.getProperDay(hours)) {
+      return (
+        this.getProperDay(hours).map( day => {
+          return (
+            <li key={day.name} className="days-list-item">
+              <div className="day-name-forecast">
+                <h4>{day.name}</h4>
+              </div>
+              <div className="humidity-forecast">
+                <img src="../../assets/images/humidity.svg" id="weather-icon" alt="humidity-forecast" />
+                <h4>{Math.round(this.reduceToOne(day.humidity))}%</h4>
+              </div>
+              <div className="icon-forecast">
+                <img id="forecast-icon" src={`http://openweathermap.org/img/wn/${day.icon}@2x.png`} alt="forecast-icon"/>
+                <h4>{day.description}</h4>
+              </div>
+              <div className="temperature-forecast">
+                <h4>{Math.round(this.reduceToOne(day.temp))}°C</h4>
+              </div>
+              <div className="wind-forecast">
+              <img src="../../assets/images/right-arrow.svg" id="weather-icon" style={{transform: `rotate(${90 + (this.reduceToOne(day.deg))}deg)`}} alt="wind-forecast" />
+                <h4>{Math.round(this.reduceToOne(day.speed) * 3.6)} km/h</h4>
+              </div>
+            </li>
+          );
+        })
 
-    );
+      );
+    } else {
+      return (
+        <div>No data</div>
+      )
+    }
   }
 
   render() {

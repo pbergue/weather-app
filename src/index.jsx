@@ -15,6 +15,7 @@ import aqi from '../src/data/API-response-AQI-paris.json';
 
 import todayWeatherReducer from './reducers/today-weather-reducer';
 import aqiReducer from './reducers/aqi-reducer';
+import forecastReducer from './reducers/forecast-reducer';
 
 // State and reducers
 const initialState = {
@@ -27,7 +28,7 @@ const initialState = {
 const reducers = combineReducers({
   majorCityList: (state = null, action) => state,
   selectedCity: todayWeatherReducer,
-  forecast: (state = null, action) => state,
+  forecast: forecastReducer,
   aqi: aqiReducer
 });
 

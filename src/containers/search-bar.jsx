@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import {getTodayWeather} from '../actions';
+import {getTodayWeather, getAqi, getForecast} from '../actions';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -12,11 +12,13 @@ class SearchBar extends Component {
       countryValue: ""
     }
   }
+
   callApi = (e) => {
     e.preventDefault();
     // console.log('Api called');
     console.log(this.state.cityValue, this.state.countryValue);
-    return this.props.getTodayWeather(this.state.cityValue, this.state.countryValue);
+    this.props.getTodayWeather(this.state.cityValue, this.state.countryValue);
+    this.props.getForecast(this.state.cityValue, this.state.countryValue);
   }
 
   handleChange = (event) => {
@@ -38,10 +40,18 @@ class SearchBar extends Component {
   }
 }
 
+function mapStateToProps(state){
+  return {
+    selectedCity: state.selectedCity
+  };
+}
+
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    getTodayWeather
+    getTodayWeather,
+    getAqi,
+    getForecast
   }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(SearchBar);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

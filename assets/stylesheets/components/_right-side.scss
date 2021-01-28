@@ -214,9 +214,15 @@
   align-items: center;
 }
 
+.icon-forecast {
+  display: flex;
+  align-items: center;
+}
+
 .temperature-forecast {
   display: flex;
   align-items: center;
+  justify-content: center;
   h4 {
     margin: 0 10px;
   }
@@ -225,6 +231,7 @@
 .wind-forecast {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 #search-loupe {

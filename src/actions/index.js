@@ -1,6 +1,7 @@
 // TODO: add and export your own actions
 export const GET_TODAY_WEATHER = 'GET_TODAY_WEATHER';
 export const GET_AQI = 'GET_AQI';
+export const GET_FORECAST = 'GET_FORECAST';
 
 export function getTodayWeather(city, country) {
   const apiKey = "679cbafd4a5e44c25bca4dd8f0fd5c14";
@@ -20,6 +21,16 @@ export function getAqi(lat, long) {
 
   return {
     type: GET_AQI,
+    payload: promise
+  }
+}
+
+export function getForecast(city, country) {
+  const apiKey = "679cbafd4a5e44c25bca4dd8f0fd5c14";
+  const promise = fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=${apiKey}&units=metric`)
+  .then(response => response.json());
+  return {
+    type: GET_FORECAST,
     payload: promise
   }
 }
