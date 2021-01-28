@@ -21,7 +21,7 @@ class LeftSide extends Component {
   }
 
   getCurrentDate() {
-    const date = new Date(Date.now());
+    const date = new Date(Date.now() - 3600000 + this.props.selectedCity.timezone*1000);
     const monthList = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
     const number = date.getDate();
@@ -32,14 +32,15 @@ class LeftSide extends Component {
   }
 
   getCurrentDay() {
-    const date = new Date(Date.now());
+    const date = new Date(Date.now() - 3600000 + this.props.selectedCity.timezone*1000);
     const dayList = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
     return dayList[date.getDay()].toUpperCase();
   }
 
-  getCurrentTime() {
-    const date = new Date(Date.now());
+  getCurrentTime = () => {
+    const date = new Date(Date.now() - 3600000 + this.props.selectedCity.timezone*1000);
+    console.log(Date.now(), this.props.selectedCity.timezone*1000);
     return `${("0" + date.getHours()).slice(-2)}:${("0" + date.getMinutes()).slice(-2)}:${("0" + date.getSeconds()).slice(-2)}`;
   }
 
