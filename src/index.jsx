@@ -13,6 +13,9 @@ import forecast from '../src/data/API-response-5-days-forecast.json';
 import todayWeather from '../src/data/API-response-today-forecast.json';
 import aqi from '../src/data/API-response-AQI-paris.json';
 
+import todayWeatherReducer from './reducers/today-weather-reducer';
+import aqiReducer from './reducers/aqi-reducer';
+
 // State and reducers
 const initialState = {
   majorCityList: ['Paris', 'New York', 'London', 'Beijing'],
@@ -23,9 +26,9 @@ const initialState = {
 
 const reducers = combineReducers({
   majorCityList: (state = null, action) => state,
-  selectedCity: (state = null, action) => state,
+  selectedCity: todayWeatherReducer,
   forecast: (state = null, action) => state,
-  aqi: (state = null, action) => state
+  aqi: aqiReducer
 });
 
 // Middlewares

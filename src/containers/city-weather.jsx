@@ -71,7 +71,7 @@ class CityWeather extends Component {
         dayToDisplay.name = [...new Set(dayToDisplay.name)];
         dayToDisplay.icon = dayToDisplay.icon[0];
 
-        console.log(dayToDisplay);
+        // console.log(dayToDisplay);
         return dayToDisplay;
 
       })

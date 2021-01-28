@@ -4,6 +4,22 @@ import { connect } from 'react-redux';
 import MajorCityList from './major-city-list';
 
 class LeftSide extends Component {
+  degSunriseSunset = () => {
+    const sunrise = this.props.selectedCity.sys.sunrise * 1000;
+    const sunset = this.props.selectedCity.sys.sunset * 1000;
+
+    const degres = (180 * (Date.now() - sunrise)) / (sunset - sunrise);
+
+    if (degres > 180) {
+      return "180";
+    } else if (degres < 0) {
+      return "0";
+    }
+    // console.table(sunset, sunrise, Date.now(), degres);
+
+    return degres.toString();
+  }
+
   getCurrentDate() {
     const date = new Date(Date.now());
     const monthList = ['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -24,7 +40,7 @@ class LeftSide extends Component {
 
   getCurrentTime() {
     const date = new Date(Date.now());
-    return `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    return `${("0" + date.getHours()).slice(-2)}:${("0" + date.getMinutes()).slice(-2)}:${("0" + date.getSeconds()).slice(-2)}`;
   }
 
   render() {
@@ -39,11 +55,11 @@ class LeftSide extends Component {
         </div>
         <div className="day-cycle">
           <img id="semi-round" src="../assets/images/semi-round.svg" />
-          <img id="orb" src="../assets/images/sun.svg" />
+          <img id="orb" src="../assets/images/sun.svg" style={{transform: `rotate(${this.degSunriseSunset()}deg)`}}/>
         </div>
         <div className="sun-hours">
-          <h4 className="sunrise-sunset"><img id="sunrise" src="../assets/images/sunrise.svg" /><span>{`${new Date(this.props.selectedCity.sys.sunrise * 1000).getHours()}:${new Date(this.props.selectedCity.sys.sunrise * 1000).getMinutes()}`}</span></h4>
-          <h4 className="sunrise-sunset"><img id="sunset" src="../assets/images/sunset.svg" /><span>{`${new Date(this.props.selectedCity.sys.sunset * 1000).getHours()}:${new Date(this.props.selectedCity.sys.sunset * 1000).getMinutes()}`}</span></h4>
+          <h4 className="sunrise-sunset"><img id="sunrise" src="../assets/images/sunrise.svg" /><span>{("0" + new Date((this.props.selectedCity.sys.sunrise + this.props.selectedCity.timezone) * 1000).getHours()).slice(-2) + ":" + ("0" + new Date((this.props.selectedCity.sys.sunrise + this.props.selectedCity.timezone) * 1000).getMinutes()).slice(-2)}</span></h4>
+          <h4 className="sunrise-sunset"><img id="sunset" src="../assets/images/sunset.svg" /><span>{("0" + new Date((this.props.selectedCity.sys.sunset + this.props.selectedCity.timezone) * 1000).getHours()).slice(-2) + ":" + ("0" + new Date((this.props.selectedCity.sys.sunset + this.props.selectedCity.timezone) * 1000).getMinutes()).slice(-2)}</span></h4>
         </div>
         <MajorCityList />
       </div>

@@ -1,11 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import {getTodayWeather, getAqi} from '../actions';
 
 import SearchBar from './search-bar';
 import CityWeather from './city-weather';
 
 
 class RightSide extends Component {
+  componentDidMount(){
+    this.props.getTodayWeather(this.props.selectedCity.name, this.props.selectedCity.sys.country);
+  }
+
+  componentWillMount(){
+    const coords = this.props.selectedCity.coord;
+    console.log(coords);
+    this.props.getAqi(coords.lat, coords.long);
+  }
+
+
   render() {
     return (
       <div className="right-side">
@@ -24,4 +38,11 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(RightSide);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    getTodayWeather,
+    getAqi
+  }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RightSide);
