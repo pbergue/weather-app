@@ -1,0 +1,167 @@
+[
+  {
+    "status": "success",
+    "data": {
+        "city": "Paris",
+        "state": "Ile-de-France",
+        "country": "France",
+        "location": {
+            "type": "Point",
+            "coordinates": [
+                2.351666,
+                48.859425
+            ]
+        },
+        "current": {
+            "weather": {
+                "ts": "2021-01-28T07:00:00.000Z",
+                "tp": 11,
+                "pr": 1006,
+                "hu": 100,
+                "ws": 5.66,
+                "wd": 230,
+                "ic": "50n"
+            },
+            "pollution": {
+                "ts": "2021-01-28T07:00:00.000Z",
+                "aqius": 23,
+                "mainus": "p2",
+                "aqicn": 15,
+                "maincn": "n2"
+            }
+        }
+    }
+  },
+  {
+    "status": "success",
+    "data": {
+        "city": "New York",
+        "state": "Ile-de-France",
+        "country": "United State Of America",
+        "location": {
+            "type": "Point",
+            "coordinates": [
+                2.351666,
+                48.859425
+            ]
+        },
+        "current": {
+            "weather": {
+                "ts": "2021-01-28T07:00:00.000Z",
+                "tp": 11,
+                "pr": 1006,
+                "hu": 100,
+                "ws": 5.66,
+                "wd": 230,
+                "ic": "50n"
+            },
+            "pollution": {
+                "ts": "2021-01-28T07:00:00.000Z",
+                "aqius": 23,
+                "mainus": "p2",
+                "aqicn": 15,
+                "maincn": "n2"
+            }
+        }
+    }
+  },
+  {
+    "status": "success",
+    "data": {
+        "city": "London",
+        "state": "Ile-de-France",
+        "country": "Great Britain",
+        "location": {
+            "type": "Point",
+            "coordinates": [
+                2.351666,
+                48.859425
+            ]
+        },
+        "current": {
+            "weather": {
+                "ts": "2021-01-28T07:00:00.000Z",
+                "tp": 11,
+                "pr": 1006,
+                "hu": 100,
+                "ws": 5.66,
+                "wd": 230,
+                "ic": "50n"
+            },
+            "pollution": {
+                "ts": "2021-01-28T07:00:00.000Z",
+                "aqius": 23,
+                "mainus": "p2",
+                "aqicn": 15,
+                "maincn": "n2"
+            }
+        }
+    }
+  },
+  {
+    "status": "success",
+    "data": {
+        "city": "Beijing",
+        "state": "Ile-de-France",
+        "country": "China",
+        "location": {
+            "type": "Point",
+            "coordinates": [
+                2.351666,
+                48.859425
+            ]
+        },
+        "current": {
+            "weather": {
+                "ts": "2021-01-28T07:00:00.000Z",
+                "tp": 11,
+                "pr": 1006,
+                "hu": 100,
+                "ws": 5.66,
+                "wd": 230,
+                "ic": "50n"
+            },
+            "pollution": {
+                "ts": "2021-01-28T07:00:00.000Z",
+                "aqius": 23,
+                "mainus": "p2",
+                "aqicn": 15,
+                "maincn": "n2"
+            }
+        }
+    }
+  },
+  {
+    "status": "success",
+    "data": {
+        "city": "Delhi",
+        "state": "Ile-de-France",
+        "country": "India",
+        "location": {
+            "type": "Point",
+            "coordinates": [
+                2.351666,
+                48.859425
+            ]
+        },
+        "current": {
+            "weather": {
+                "ts": "2021-01-28T07:00:00.000Z",
+                "tp": 11,
+                "pr": 1006,
+                "hu": 100,
+                "ws": 5.66,
+                "wd": 230,
+                "ic": "50n"
+            },
+            "pollution": {
+                "ts": "2021-01-28T07:00:00.000Z",
+                "aqius": 23,
+                "mainus": "p2",
+                "aqicn": 15,
+                "maincn": "n2"
+            }
+        }
+    }
+  }
+]

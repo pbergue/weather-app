@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Paris",
+    "country": "FR",
+    "lat": "48.8534",
+    "lon": "2.3488"
+  },
+  {
+    "name": "New York",
+    "country": "US",
+    "lat": "40.7143",
+    "lon": "-74.006"
+  },
+  {
+    "name": "London",
+    "country": "GB",
+    "lat": "51.5085",
+    "lon": "-0.1257"
+  },
+  {
+    "name": "Beijing",
+    "country": "CN",
+    "lat": "39.9075",
+    "lon": "116.3972"
+  },
+  {
+    "name": "Delhi",
+    "country": "IN",
+    "lat": "28.6667",
+    "lon": "77.2167"
+  }
+]

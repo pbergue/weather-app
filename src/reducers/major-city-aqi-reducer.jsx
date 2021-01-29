@@ -1,4 +1,4 @@
-// import { GET_AQI } from '../actions';
+import { GET_AQI } from '../actions';
 
 export default function(state = null, action) {
 
@@ -7,8 +7,10 @@ export default function(state = null, action) {
   }
 
   switch(action.type) {
-    // case GET_AQI:
-    //   return action.payload;
+    case GET_AQI:
+      state.shift();
+      state.push(action.payload);
+      return state;
     default:
       return state;
   }

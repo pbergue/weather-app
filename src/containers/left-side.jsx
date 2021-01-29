@@ -4,6 +4,19 @@ import { connect } from 'react-redux';
 import MajorCityList from './major-city-list';
 
 class LeftSide extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentTime: this.getCurrentTime()
+    }
+  }
+  // componentDidMount(){
+  //   this.interval = setInterval(() => this.setState({currentTime: this.getCurrentTime()}), 1000);
+  // }
+  // componentWillUnmount() {
+  //   clearInterval(this.interval);
+  // }
+
   degSunriseSunset = () => {
     const sunrise = this.props.selectedCity.sys.sunrise * 1000;
     const sunset = this.props.selectedCity.sys.sunset * 1000;
@@ -52,7 +65,7 @@ class LeftSide extends Component {
         <div className="date">
           <h4 className="day">{this.getCurrentDay()}</h4>
           <h4 className="date-item">{this.getCurrentDate()}</h4>
-          <h4 className="hour">{this.getCurrentTime()}</h4>
+          <h4 className="hour">{this.state.currentTime}</h4>
         </div>
         <div className="day-cycle">
           <img id="semi-round" src="../assets/images/semi-round.svg" />

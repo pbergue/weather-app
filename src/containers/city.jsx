@@ -1,8 +1,26 @@
 import React, { Component } from 'react';
-// import { bindActionCreators } from 'redux';
-// import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import { getAqi } from '../actions';
 
 class City extends Component {
+  constructor(props) {
+    super(props);
+    this.props.getAqi(this.props.city.lat, this.props.city.lon);
+    this.state = {
+      cityAqi: {}
+    };
+  }
+
+  componentWillMount() {
+    // console.log(this.props.majorCityAqi);
+    // this.setState({
+    //   cityAqi: this.props.getAqi(this.props.city.lat, this.props.city.lon)
+    // })
+    // console.log(this.props.majorCityAqi);
+
+  }
 
   aqiColor = (number) => {
     const colorScale = {
@@ -15,7 +33,7 @@ class City extends Component {
     };
 
 
-      if (number <= 50) { return colorScale.green }
+    if (number <= 50) { return colorScale.green }
       else if (number <= 100) { return colorScale.yellow }
       else if (number <= 150) { return colorScale.orange }
       else if (number <= 200) { return colorScale.red }
@@ -35,27 +53,48 @@ class City extends Component {
     };
 
 
-      if (number <= 50) { return wordScale.good }
+    if (number <= 50) { return wordScale.good }
       else if (number <= 100) { return wordScale.moderate }
       else if (number <= 150) { return wordScale.unhealthy }
       else if (number <= 200) { return wordScale.unhealthyy }
       else if (number <= 300) { return wordScale.unhealthyyy }
       else if (number > 300) { return wordScale.hazardous }
       else { return "no data" }
-  }
+    }
 
   render() {
-    const style = {
-      backgroundColor: this.aqiColor(parseInt(this.props.aqi.data.current.pollution.aqius))
-    };
-    return (
-      <div className="city-item">
-        <h5 className="city-item-name">{this.props.city}</h5>
-        <h5 className="city-item-value">{this.props.aqi.data.current.pollution.aqius}</h5>
-        <h5 className="city-item-advice" style={style}>{this.getAqiValue(parseInt(this.props.aqi.data.current.pollution.aqius))}</h5>
-      </div>
-    );
+    // console.log(this.props.aqi);
+    console.log(this.props.majorCityAqi);
+    if (this.props.majorCityAqi[parseInt(this.props.index)].data) {
+      return (
+        <div className="city-item">
+          <h5 className="city-item-name">{this.props.city.name}</h5>
+          <h5 className="city-item-value">{this.props.majorCityAqi[this.props.index].data.current.pollution.aqius}</h5>
+          <h5 className="city-item-advice" style={{backgroundColor: this.aqiColor(parseInt(this.props.majorCityAqi[this.props.index].data.current.pollution.aqius))}}>{this.getAqiValue(parseInt(this.props.majorCityAqi[this.props.index].data.current.pollution.aqius))}</h5>
+        </div>
+      );
+    } else {
+      return (
+        <div className="city-item">
+          <h5 className="city-item-name">No data</h5>
+          <h5 className="city-item-value">No data</h5>
+          <h5 className="city-item-advice">No data</h5>
+        </div>
+      )
+    }
   }
 }
 
-export default City;
+function mapStateToProps(state) {
+  return {
+    majorCityAqi: state.majorCityAqi
+  }
+}
+
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({
+    getAqi
+  }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(City);

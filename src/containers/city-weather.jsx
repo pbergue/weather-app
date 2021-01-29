@@ -71,8 +71,13 @@ class CityWeather extends Component {
 
         })
         dayToDisplay.name = [...new Set(dayToDisplay.name)];
-        dayToDisplay.icon = dayToDisplay.icon[3];
-        dayToDisplay.description = dayToDisplay.description[3];
+        if (dayToDisplay.icon[3] && dayToDisplay.description[3]) {
+          dayToDisplay.icon = dayToDisplay.icon[3];
+          dayToDisplay.description = dayToDisplay.description[3];
+        } else {
+          dayToDisplay.icon = dayToDisplay.icon[0];
+          dayToDisplay.description = dayToDisplay.description[0];
+        }
 
         return dayToDisplay;
 
