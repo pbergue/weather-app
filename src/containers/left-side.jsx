@@ -10,12 +10,12 @@ class LeftSide extends Component {
       currentTime: this.getCurrentTime()
     }
   }
-  // componentDidMount(){
-  //   this.interval = setInterval(() => this.setState({currentTime: this.getCurrentTime()}), 1000);
-  // }
-  // componentWillUnmount() {
-  //   clearInterval(this.interval);
-  // }
+  componentDidMount(){
+    this.interval = setInterval(() => this.setState({currentTime: this.getCurrentTime()}), 1000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
 
   degSunriseSunset = () => {
     const sunrise = this.props.selectedCity.sys.sunrise * 1000;
@@ -53,7 +53,6 @@ class LeftSide extends Component {
 
   getCurrentTime = () => {
     const date = new Date(Date.now() - 3600000 + this.props.selectedCity.timezone*1000);
-    console.log(Date.now(), this.props.selectedCity.timezone*1000);
     return `${("0" + date.getHours()).slice(-2)}:${("0" + date.getMinutes()).slice(-2)}:${("0" + date.getSeconds()).slice(-2)}`;
   }
 

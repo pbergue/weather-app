@@ -7,19 +7,16 @@ import { getAqi } from '../actions';
 class City extends Component {
   constructor(props) {
     super(props);
-    this.props.getAqi(this.props.city.lat, this.props.city.lon);
-    this.state = {
-      cityAqi: {}
-    };
   }
 
-  componentWillMount() {
+  componentDidUpdate() {
     // console.log(this.props.majorCityAqi);
     // this.setState({
     //   cityAqi: this.props.getAqi(this.props.city.lat, this.props.city.lon)
     // })
     // console.log(this.props.majorCityAqi);
-
+    this.props.getAqi(this.props.city.lat, this.props.city.lon);
+    console.log('updated')
   }
 
   aqiColor = (number) => {
@@ -63,14 +60,14 @@ class City extends Component {
     }
 
   render() {
-    // console.log(this.props.aqi);
-    console.log(this.props.majorCityAqi);
-    if (this.props.majorCityAqi[parseInt(this.props.index)].data) {
+    console.log(this.props.aqi);
+    // console.log(this.props.majorCityAqi);
+    if (this.props.aqi.data) {
       return (
         <div className="city-item">
           <h5 className="city-item-name">{this.props.city.name}</h5>
-          <h5 className="city-item-value">{this.props.majorCityAqi[this.props.index].data.current.pollution.aqius}</h5>
-          <h5 className="city-item-advice" style={{backgroundColor: this.aqiColor(parseInt(this.props.majorCityAqi[this.props.index].data.current.pollution.aqius))}}>{this.getAqiValue(parseInt(this.props.majorCityAqi[this.props.index].data.current.pollution.aqius))}</h5>
+          <h5 className="city-item-value">{this.props.aqi.data.current.pollution.aqius}</h5>
+          <h5 className="city-item-advice" style={{backgroundColor: this.aqiColor(parseInt(this.props.aqi.data.current.pollution.aqius))}}>{this.getAqiValue(parseInt(this.props.aqi.data.current.pollution.aqius))}</h5>
         </div>
       );
     } else {
