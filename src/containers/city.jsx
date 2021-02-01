@@ -10,13 +10,7 @@ class City extends Component {
   }
 
   componentDidUpdate() {
-    // console.log(this.props.majorCityAqi);
-    // this.setState({
-    //   cityAqi: this.props.getAqi(this.props.city.lat, this.props.city.lon)
-    // })
-    // console.log(this.props.majorCityAqi);
     this.props.getAqi(this.props.city.lat, this.props.city.lon);
-    console.log('updated')
   }
 
   aqiColor = (number) => {
