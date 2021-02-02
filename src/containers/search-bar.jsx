@@ -19,6 +19,7 @@ class SearchBar extends Component {
     console.log(this.state.cityValue, this.state.countryValue);
     this.props.getTodayWeather(this.state.cityValue, this.state.countryValue);
     this.props.getForecast(this.state.cityValue, this.state.countryValue);
+    this.props.getAqi(this.state.cityValue, this.state.countryValue);
   }
 
   handleChange = (event) => {

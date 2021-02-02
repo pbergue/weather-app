@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { getAqi } from '../actions';
+import { getMajorCitiesAqi } from '../actions';
 
 class City extends Component {
   constructor(props) {
     super(props);
   }
 
-  componentDidUpdate() {
-    this.props.getAqi(this.props.city.lat, this.props.city.lon);
-  }
+  // componentWillMount() {
+  //   this.props.getMajorCitiesAqi(this.props.city.lat, this.props.city.lon);
+  // }
 
   aqiColor = (number) => {
     const colorScale = {
@@ -54,20 +54,20 @@ class City extends Component {
     }
 
   render() {
-    console.log(this.props.aqi);
+    console.log(this.props.majorCityAqi[parseInt(this.props.index)]);
     // console.log(this.props.majorCityAqi);
-    if (this.props.aqi.data) {
+    if (this.props.majorCityAqi[parseInt(this.props.index)].data) {
       return (
         <div className="city-item">
           <h5 className="city-item-name">{this.props.city.name}</h5>
-          <h5 className="city-item-value">{this.props.aqi.data.current.pollution.aqius}</h5>
-          <h5 className="city-item-advice" style={{backgroundColor: this.aqiColor(parseInt(this.props.aqi.data.current.pollution.aqius))}}>{this.getAqiValue(parseInt(this.props.aqi.data.current.pollution.aqius))}</h5>
+          <h5 className="city-item-value">{this.props.majorCityAqi[parseInt(this.props.index)].data.current.pollution.aqius}</h5>
+          <h5 className="city-item-advice" style={{backgroundColor: this.aqiColor(parseInt(this.props.majorCityAqi[parseInt(this.props.index)].data.current.pollution.aqius))}}>{this.getAqiValue(parseInt(this.props.majorCityAqi[parseInt(this.props.index)].data.current.pollution.aqius))}</h5>
         </div>
       );
     } else {
       return (
         <div className="city-item">
-          <h5 className="city-item-name">No data</h5>
+          <h5 className="city-item-name">{this.props.city.name}</h5>
           <h5 className="city-item-value">No data</h5>
           <h5 className="city-item-advice">No data</h5>
         </div>
@@ -84,7 +84,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
-    getAqi
+    getMajorCitiesAqi
   }, dispatch);
 }
 

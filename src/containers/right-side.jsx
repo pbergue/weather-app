@@ -12,6 +12,7 @@ class RightSide extends Component {
   componentDidMount(){
     this.props.getTodayWeather(this.props.selectedCity.name, this.props.selectedCity.sys.country);
     this.props.getForecast(this.props.selectedCity.name, this.props.selectedCity.sys.country);
+    this.props.getAqi(this.props.selectedCity.name, this.props.selectedCity.sys.country);
   }
 
   // componentWillMount(){
