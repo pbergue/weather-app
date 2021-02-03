@@ -24,7 +24,7 @@ export function getAqi(city, country) {
   .then( data => {
     const lat = data.coord.lat;
     const lon = data.coord.lon;
-    return fetch(`http://api.airvisual.com/v2/nearest_city?lat=${lat}&lon=${lon}&key=${aqiKey}`)
+    return fetch(`https://api.airvisual.com/v2/nearest_city?lat=${lat}&lon=${lon}&key=${aqiKey}`)
   })
   .then(response => response.json());
 
@@ -37,7 +37,7 @@ export function getAqi(city, country) {
 export function getMajorCitiesAqi(lat, lon) {
   const aqiKey = "0ba110d0-aa54-4ac9-b439-c93aca7b04b5";
 
-  const majorCitiesAqi = fetch(`http://api.airvisual.com/v2/nearest_city?lat=${lat}&lon=${lon}&key=${aqiKey}`)
+  const majorCitiesAqi = fetch(`https://api.airvisual.com/v2/nearest_city?lat=${lat}&lon=${lon}&key=${aqiKey}`)
   .then(response => response.json())
 
   return {

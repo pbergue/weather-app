@@ -122,7 +122,7 @@ class CityWeather extends Component {
                 <h4>{Math.round(this.reduceToOne(day.humidity))}%</h4>
               </div>
               <div className="icon-forecast">
-                <img id="forecast-icon" src={`http://openweathermap.org/img/wn/${day.icon}@2x.png`} alt="forecast-icon"/>
+                <img id="forecast-icon" src={`https://openweathermap.org/img/wn/${day.icon}@2x.png`} alt="forecast-icon"/>
                 <h4>{day.description}</h4>
               </div>
               <div className="temperature-forecast">
@@ -154,7 +154,7 @@ class CityWeather extends Component {
             <div className="weather-data">
               <div className="weather-description">
                 <h2>{this.props.city.weather[0].main}</h2>
-                <img src={`http://openweathermap.org/img/wn/${this.props.city.weather[0].icon}@2x.png`} id="top-weather-icon" />
+                <img src={`https://openweathermap.org/img/wn/${this.props.city.weather[0].icon}@2x.png`} id="top-weather-icon" />
               </div>
               <div className="first-line-data">
                 <div className="data-temperature">
