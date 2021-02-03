@@ -38,5 +38,6 @@
     "start": "webpack-dev-server --mode development",
     "lint": "eslint './src/**/*.js' './src/**/*.jsx'",
     "deploy": "webpack -p && gh-pages -d dist"
-  }
+  },
+  "homepage": "https://pbergue.github.io/weather-app/"
 }
