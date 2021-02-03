@@ -17,7 +17,7 @@ export function getTodayWeather(city, country) {
 
 export function getAqi(city, country) {
   const opKey = "679cbafd4a5e44c25bca4dd8f0fd5c14";
-  const aqiKey = "9cac9d21-23b6-4736-8409-7b1885f9b665";
+  const aqiKey = "0ba110d0-aa54-4ac9-b439-c93aca7b04b5";
 
   const todayAqi = fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${opKey}&units=metric`)
   .then(response => response.json())
@@ -35,7 +35,7 @@ export function getAqi(city, country) {
 }
 
 export function getMajorCitiesAqi(lat, lon) {
-  const aqiKey = "9cac9d21-23b6-4736-8409-7b1885f9b665";
+  const aqiKey = "0ba110d0-aa54-4ac9-b439-c93aca7b04b5";
 
   const majorCitiesAqi = fetch(`http://api.airvisual.com/v2/nearest_city?lat=${lat}&lon=${lon}&key=${aqiKey}`)
   .then(response => response.json())

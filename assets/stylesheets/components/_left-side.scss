@@ -84,12 +84,14 @@
 
   .city-item {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr 2fr;
 
     .city-item-name{
       font-weight: 400;
       margin: 10px 0;
       font-size: 16px;
+      text-align: left;
+      width: 110px;
     }
 
     .city-item-value{

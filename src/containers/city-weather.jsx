@@ -22,6 +22,26 @@ class CityWeather extends Component {
       else { return "transparent" }
   }
 
+  getAqiValue = (number) => {
+    const wordScale = {
+      good: "Good",
+      moderate: "Moderate",
+      unhealthy: "Unhealthy",
+      unhealthyy: "Unhealthy +",
+      unhealthyyy: "Very unhealthy",
+      hazardous: "Hazardous"
+    };
+
+
+    if (number <= 50) { return wordScale.good }
+      else if (number <= 100) { return wordScale.moderate }
+      else if (number <= 150) { return wordScale.unhealthy }
+      else if (number <= 200) { return wordScale.unhealthyy }
+      else if (number <= 300) { return wordScale.unhealthyyy }
+      else if (number > 300) { return wordScale.hazardous }
+      else { return "no data" }
+  }
+
   reduceToOne = (arr) => {
     return arr.reduce((a, b) => a + b, 0)/(arr.length);
   }
@@ -87,11 +107,8 @@ class CityWeather extends Component {
   }
 
   renderList = () => {
-    // if (this.getProperDay(hours) === null) {
-    //   return;
-    // }
     const hours = this.props.forecast.list;
-    // console.log(this.getProperDay(hours));
+
     if (this.getProperDay(hours)) {
       return (
         this.getProperDay(hours).map( day => {
@@ -173,7 +190,7 @@ class CityWeather extends Component {
             <div className="air-quality-content">
               <div className="air-quality-value">
                 <div className="air-quality-title">
-                  <h5>GOOD</h5>
+                  <h5>{this.getAqiValue(parseInt(this.props.aqi.data.current.pollution.aqius))}</h5>
                   <span className="air-quality-indicator" style={{backgroundColor: this.aqiColor(parseInt(this.props.aqi.data.current.pollution.aqius))}}></span>
                 </div>
                 <h6>US AQI:</h6>

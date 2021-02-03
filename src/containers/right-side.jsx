@@ -15,13 +15,6 @@ class RightSide extends Component {
     this.props.getAqi(this.props.selectedCity.name, this.props.selectedCity.sys.country);
   }
 
-  // componentWillMount(){
-  //   const coords = this.props.selectedCity.coord;
-  //   console.log(coords);
-  //   this.props.getAqi(coords.lat, coords.long);
-  // }
-
-
   render() {
     return (
       <div className="right-side">

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+
+import { getMajorCitiesAqi } from '../actions';
 
 import MajorCityList from './major-city-list';
 
@@ -12,6 +15,9 @@ class LeftSide extends Component {
   }
   componentDidMount(){
     this.interval = setInterval(() => this.setState({currentTime: this.getCurrentTime()}), 1000);
+    this.props.majorCityList.forEach( city => {
+      this.props.getMajorCitiesAqi(city.lat, city.lon);
+    });
   }
   componentWillUnmount() {
     clearInterval(this.interval);
@@ -74,16 +80,24 @@ class LeftSide extends Component {
           <h4 className="sunrise-sunset"><img id="sunrise" src="../assets/images/sunrise.svg" /><span>{("0" + new Date((this.props.selectedCity.sys.sunrise + this.props.selectedCity.timezone) * 1000).getHours()).slice(-2) + ":" + ("0" + new Date((this.props.selectedCity.sys.sunrise + this.props.selectedCity.timezone) * 1000).getMinutes()).slice(-2)}</span></h4>
           <h4 className="sunrise-sunset"><img id="sunset" src="../assets/images/sunset.svg" /><span>{("0" + new Date((this.props.selectedCity.sys.sunset + this.props.selectedCity.timezone) * 1000).getHours()).slice(-2) + ":" + ("0" + new Date((this.props.selectedCity.sys.sunset + this.props.selectedCity.timezone) * 1000).getMinutes()).slice(-2)}</span></h4>
         </div>
-        <MajorCityList />
+        <MajorCityList aqi={this.props.majorCityAqi} />
       </div>
     )
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    getMajorCitiesAqi
+  }, dispatch);
+}
+
 function mapStateToProps(state) {
   return {
-    selectedCity: state.selectedCity
+    selectedCity: state.selectedCity,
+    majorCityList: state.majorCityList,
+    majorCityAqi: state.majorCityAqi
   }
 }
 
-export default connect(mapStateToProps)(LeftSide);
+export default connect(mapStateToProps, mapDispatchToProps)(LeftSide);

@@ -8,7 +8,8 @@ export default function(state = null, action) {
 
   switch(action.type) {
     case GET_MAJOR_CITIES_AQI:
-      state = [];
+      // debugger;
+      state.splice(0, 1);
       state.push(action.payload);
       return state;
     default:

@@ -4,10 +4,9 @@ import { connect } from 'react-redux';
 
 import City from './city';
 
-// import { getAqi } from '../actions';
+// import { getMajorCitiesAqi } from '../actions';
 
 class MajorCityList extends Component {
-
 
   render() {
     return (
@@ -15,10 +14,10 @@ class MajorCityList extends Component {
         <h2>Air quality in major cities</h2>
         <ul>
           {
-            this.props.majorCityList.map( (city, index) => {
+            this.props.aqi.map( (aqi, index) => {
               return (
-                <li key={city.name}>
-                  <City city={city} index={index} aqi={this.props.majorCityAqi[parseInt(index)]} />
+                <li key={aqi.data.city}>
+                  <City city={aqi} />
                 </li>
               );
             })
@@ -31,15 +30,14 @@ class MajorCityList extends Component {
 
 // function mapDispatchToProps(dispatch) {
 //   return bindActionCreators({
-//     getAqi
+//     getMajorCitiesAqi
 //   }, dispatch);
 // }
 
-function mapStateToProps(state) {
-  return {
-    majorCityList: state.majorCityList,
-    majorCityAqi: state.majorCityAqi
-  }
-}
+// function mapStateToProps(state) {
+//   return {
+//     majorCityList: state.majorCityList
+//   }
+// }
 
-export default connect(mapStateToProps)(MajorCityList);
+export default MajorCityList;

@@ -205,8 +205,9 @@
 
 .days-list-item {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
   padding: 0 15px;
+  height: 60px;
 }
 
 .humidity-forecast {
