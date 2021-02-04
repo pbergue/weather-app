@@ -35,7 +35,7 @@ class SearchBar extends Component {
       <form method="get" className="search-bar" onSubmit={this.callApi}>
         <input type="text" className="search-form-city" value={this.state.cityValue} placeholder="City" onChange={this.handleChange} />
         <input type="text" className="search-form-country" value={this.state.countryValue} placeholder="Country" onChange={this.handleChange} />
-        <input type="image" src="/assets/images/loupe.svg" id="search-loupe" />
+        <input type="image" src="/loupe.svg" id="search-loupe" />
       </form>
     );
   }
