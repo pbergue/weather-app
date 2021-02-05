@@ -4,6 +4,8 @@ import { bindActionCreators } from 'redux';
 
 import {getTodayWeather, getAqi, getForecast} from '../actions';
 
+import loupe from '../assets/images/loupe.svg';
+
 class SearchBar extends Component {
   constructor(props) {
     super(props);
@@ -35,7 +37,7 @@ class SearchBar extends Component {
       <form method="get" className="search-bar" onSubmit={this.callApi}>
         <input type="text" className="search-form-city" value={this.state.cityValue} placeholder="City" onChange={this.handleChange} />
         <input type="text" className="search-form-country" value={this.state.countryValue} placeholder="Country" onChange={this.handleChange} />
-        <input type="image" src="../../assets/images/loupe.svg" id="search-loupe" />
+        <input type="image" src={loupe} id="search-loupe" />
       </form>
     );
   }

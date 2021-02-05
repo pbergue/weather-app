@@ -8,7 +8,7 @@ import reduxPromise from 'redux-promise';
 
 // internal modules
 import App from './components/app';
-import '../assets/stylesheets/application.scss';
+import './assets/stylesheets/application.scss';
 // Reducers
 import todayWeatherReducer from './reducers/today-weather-reducer';
 import aqiReducer from './reducers/aqi-reducer';
