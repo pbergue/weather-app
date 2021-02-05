@@ -118,7 +118,7 @@ class CityWeather extends Component {
                 <h4>{day.name}</h4>
               </div>
               <div className="humidity-forecast">
-                <img src="/humidity.svg" id="weather-icon" alt="humidity-forecast" />
+                <img src="../../assets/images/humidity.svg" id="weather-icon" alt="humidity-forecast" />
                 <h4>{Math.round(this.reduceToOne(day.humidity))}%</h4>
               </div>
               <div className="icon-forecast">
@@ -129,7 +129,7 @@ class CityWeather extends Component {
                 <h4>{Math.round(this.reduceToOne(day.temp))}°C</h4>
               </div>
               <div className="wind-forecast">
-              <img src="/right-arrow.svg" id="weather-icon" style={{transform: `rotate(${90 + (this.reduceToOne(day.deg))}deg)`}} alt="wind-forecast" />
+              <img src="../../assets/images/right-arrow.svg" id="weather-icon" style={{transform: `rotate(${90 + (this.reduceToOne(day.deg))}deg)`}} alt="wind-forecast" />
                 <h4>{Math.round(this.reduceToOne(day.speed) * 3.6)} km/h</h4>
               </div>
             </li>
@@ -158,28 +158,28 @@ class CityWeather extends Component {
               </div>
               <div className="first-line-data">
                 <div className="data-temperature">
-                  <img src="/thermometer.svg" id="weather-icon" alt="temperature" />
+                  <img src="../../assets/images/thermometer.svg" id="weather-icon" alt="temperature" />
                   <div className="temp-max-min">
                     <p>{Math.round(this.props.city.main.temp_max)}°C</p>
                     <p>{Math.round(this.props.city.main.temp_min)}°C</p>
                   </div>
                 </div>
                 <div className="data-humidity">
-                  <img src="/humidity.svg" id="weather-icon" alt="humidity" />
+                  <img src="../../assets/images/humidity.svg" id="weather-icon" alt="humidity" />
                   <p>{this.props.city.main.humidity}%</p>
                 </div>
                 <div className="data-pressure">
-                  <img src="/gauge.svg" id="weather-icon" alt="pressure" />
+                  <img src="../../assets/images/gauge.svg" id="weather-icon" alt="pressure" />
                   <p>{this.props.city.main.pressure} hPa</p>
                 </div>
               </div>
               <div className="second-line-data">
                 <div className="data-wind-speed">
-                  <img src="/wind.svg" id="weather-icon" alt="wind-speed" />
+                  <img src="../../assets/images/wind.svg" id="weather-icon" alt="wind-speed" />
                   <p>{Math.round(this.props.city.wind.speed * 3.6)} km/h</p>
                 </div>
                 <div className="data-wind-direction">
-                  <img src="/right-arrow.svg" id="weather-icon" style={{transform: `rotate(${90 + this.props.city.wind.deg}deg)`}} alt="wind-direction" />
+                  <img src="../../assets/images/right-arrow.svg" id="weather-icon" style={{transform: `rotate(${90 + this.props.city.wind.deg}deg)`}} alt="wind-direction" />
                   <p>{this.props.city.wind.deg}°</p>
                 </div>
               </div>
